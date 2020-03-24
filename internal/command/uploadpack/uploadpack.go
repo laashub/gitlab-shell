@@ -26,6 +26,10 @@ func (c *Command) Execute() error {
 		return err
 	}
 
+	if response.IsCustomAction() {
+		return c.processCustomAction(response)
+	}
+
 	return c.performGitalyCall(response)
 }
 
