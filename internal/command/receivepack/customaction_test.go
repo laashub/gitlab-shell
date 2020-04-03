@@ -38,7 +38,7 @@ func TestCustomReceivePack(t *testing.T) {
 					"payload": map[string]interface{}{
 						"action": "geo_proxy_to_primary",
 						"data": map[string]interface{}{
-							"api_endpoints": []string{"/geo/proxy_git_push_ssh/info_refs", "/geo/proxy_git_push_ssh/push"},
+							"api_endpoints": []string{"/geo/proxy_git_ssh/info_refs_receive_pack", "/geo/proxy_git_ssh/receive_pack"},
 							"gl_username":   "custom",
 							"primary_repo":  "https://repo/path",
 						},
@@ -49,7 +49,7 @@ func TestCustomReceivePack(t *testing.T) {
 			},
 		},
 		{
-			Path: "/geo/proxy_git_push_ssh/info_refs",
+			Path: "/geo/proxy_git_ssh/info_refs_receive_pack",
 			Handler: func(w http.ResponseWriter, r *http.Request) {
 				b, err := ioutil.ReadAll(r.Body)
 				require.NoError(t, err)
@@ -65,7 +65,7 @@ func TestCustomReceivePack(t *testing.T) {
 			},
 		},
 		{
-			Path: "/geo/proxy_git_push_ssh/push",
+			Path: "/geo/proxy_git_ssh/receive_pack",
 			Handler: func(w http.ResponseWriter, r *http.Request) {
 				b, err := ioutil.ReadAll(r.Body)
 				require.NoError(t, err)

@@ -94,7 +94,7 @@ func TestGetCustomAction(t *testing.T) {
 	response.Payload = CustomPayload{
 		Action: "geo_proxy_to_primary",
 		Data: CustomPayloadData{
-			ApiEndpoints: []string{"geo/proxy_git_push_ssh/info_refs", "geo/proxy_git_push_ssh/push"},
+			ApiEndpoints: []string{"geo/proxy_git_ssh/info_refs_receive_pack", "geo/proxy_git_ssh/receive_pack"},
 			Username:     "custom",
 			PrimaryRepo:  "https://repo/path",
 		},
